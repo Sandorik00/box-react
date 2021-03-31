@@ -1,0 +1,80 @@
+$grid-width: 50vw;
+$grid-height: 50vh;
+
+body {
+  color: rgb(255, 255, 255);
+  background-color: rgb(24, 24, 31);
+  margin: 0vh;
+}
+
+.display {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+
+.header-menu {
+  display: inline-flex;
+  height: 36px;
+  width: 100vw;
+  background-color: rgb(8, 8, 88);
+
+  ul {
+    list-style: none;
+  }
+
+  li {
+    display: inline;
+    margin-right: 10px;
+  }
+
+  h1 {
+    align-self: center;
+    margin: 0;
+    width: inherit;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.main-zone {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  div .field {
+    width: $grid-width;
+    height: $grid-height;
+    margin-top: 7%;
+    padding-top: 7%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: default;
+
+    .minesweeper-row {
+      display: flex;
+    }
+
+    .numbers {
+      margin: 0;
+      padding: 0;
+      border: 0;
+      text-align: center;
+      width: $grid-width / 15;
+      height: $grid-height / 9;
+      user-select: none;
+      color: rgb(8, 8, 88);
+      cursor: default;
+      outline: none;
+      -webkit-user-drag: none;
+      font-size: $grid-height / 10;
+    }
+
+    .numbers:hover {
+      cursor: default;
+    }
+  }
+}
