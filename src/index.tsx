@@ -181,7 +181,7 @@ class GameFrame extends React.Component<BoardProps, BoardState> {
     this.width = props.width;
     this.height = props.height;
     this.hiddenCellsCount = props.width * props.height;
-    this.minesCount = 30;
+    this.minesCount = 20;
     this.cellFromXY = this.cellFromXY.bind(this);
     this.randomCell = this.randomCell.bind(this);
     this.changeHiddenCounter = this.changeHiddenCounter.bind(this);
