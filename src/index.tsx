@@ -65,16 +65,18 @@ class Cell extends React.Component<CellProps, CellState> {
     e.preventDefault();
     if (isOver) return;
     if (e.button === 0 && this.state.isFlagged) return;
-    this.setState({ isHidden: e.button === 0 ? false : true });
-    this.setState({ isFlagged: e.button === 2 ? !this.state.isFlagged : this.state.isFlagged });
+    if (e.button === 0) this.setState({ isHidden: false });
+    if (e.button === 2) this.setState({ isFlagged: !this.state.isFlagged });
+  }
+
+  componentDidUpdate() {
+    if (!this.state.isHidden && this.isMine) {
+      this.props.onGameOver(false);
+    } else if (!this.state.isHidden) this.props.onUnhidden();
   }
 
   render() {
     //if (isOver && !this.state.isFlagged) this.setState({isHidden: false});
-    if (!this.state.isHidden && this.isMine) {
-      this.props.onGameOver(false);
-    }
-    if (!this.state.isHidden) this.props.onUnhidden();
     if (this.state.isHidden) {
       if (this.state.isFlagged)
         return (
